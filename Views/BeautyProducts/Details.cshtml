@@ -1,0 +1,90 @@
+﻿@model BeautyProcutReview.BeautyProduct
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<html>
+<head>
+    <style>
+
+        body  {
+  /*background-image: url("paper.gif");*/
+  background-color: #f5d0d0;
+}
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #f15b5b;
+            color: white;
+        }
+
+
+        .button {
+  background-color: #f15b5b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+    <h1>BeautyProduct Details</h1>
+  
+    <table border="0">
+
+        <tr>
+            <th>
+                Product Images
+            </th>
+            <th> Products Name</th>
+            <th> Products Descriptions </th>
+        </tr>
+
+        <tr> <td>  <img src="~/Content/img/@Url.Content(Model.image)" width="200" height="200" />
+            </td> 
+           <td>
+               @Html.DisplayFor(model => model.ProductName)</td> 
+            <td>@Html.DisplayFor(model => model.ProductDescription) </td>
+            </tr> 
+
+        
+    
+</table>
+<p>
+    @Html.ActionLink("Write Review", "Review", new { id = Model.ProductID }, new { @class = " button" })
+
+
+
+    @Html.ActionLink("View More Proudcts", "Index",null, new { @class = " button" })
+</p>
+    </body>
+</html>

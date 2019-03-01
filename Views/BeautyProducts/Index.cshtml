@@ -1,0 +1,169 @@
+﻿
+@model IEnumerable<BeautyProcutReview.BeautyProduct>
+
+@{
+    ViewBag.Title = "Beauy  Produts";
+    Layout = null;
+}
+
+
+
+
+<html lang="en">
+</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Agency - Start Bootstrap Theme</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="~/Content/agency.css" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #f15b5b;
+            color: white;
+        }
+
+        .button {
+            background-color: #f15b5b;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            align-content: center;
+        }
+
+
+            .Font {
+font-family: Georgia, serif;
+font-size: 17px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #000000;
+font-weight: normal;
+text-decoration: none;
+font-style: italic;
+font-variant: normal;
+text-transform: none;
+}
+
+h1{
+color: #A7DD3C;
+background: #FFFFFF;
+text-shadow: 2px 0 0px #800040, 3px 2px 0px rgba(77,0,38,0.5), 3px 0 3px #FF002B, 5px 0 3px #800015, 6px 2px 3px rgba(77,0,13,0.5), 6px 0 9px #FF5500, 8px 0 9px #802A00, 9px 2px 9px rgba(77,25,0,0.5), 9px 0 18px #FFD500, 11px 0 18px #806A00, 12px 2px 18px rgba(77,66,0,0.5), 12px 0 30px #D4FF00, 14px 0 30px #6A8000, 15px 2px 30px rgba(64,77,0,0.5), 15px 0 45px #80FF00, 17px 0 45px #408000, 17px 2px 45px rgba(38,77,0,0.5);
+color: #A7DD3C;
+background: #FFFFFF;
+}
+
+
+
+    </style>
+</head>
+
+
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+        
+            <img src="~/Content/img/Beauty Paradise .png" style="width: 250px;height: 160px; margin-left:0%; margin-top:-2%" alt="">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                @Html.ActionLink(" Back to Home", "Index", "Home", null, new { @class = "button" });
+
+
+              </div>
+            </div>
+    </nav>
+
+
+
+    <h1>Beauty Products</h1>
+
+    <p>
+
+    </p>
+    <table class="table Font" width="70">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                Image
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    <img src="~/Content/img/@Url.Content(item.image)" width="200" height="200" />
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+
+                    @*@Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = " button" })*@
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |*@
+
+
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
+
+                </td>
+            </tr>
+            <tr colspan="2">
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = " button" })
+
+
+
+                </td>
+                <td>@Html.ActionLink("Write Review", "login", new { id = item.ProductID }, new { @class = " button" })</td>
+            </tr>
+
+
+
+
+        }
+    </table>
+
+</body>
+
+</html>

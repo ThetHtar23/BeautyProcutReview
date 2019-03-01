@@ -1,0 +1,42 @@
+﻿@model BeautyProcutReview.MemberReivew
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MemberReivew</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SuggesstionText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuggesstionText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeautyProduct.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeautyProduct.ProductName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Your Reviews", "Edit", new { id = Model.ReviewID }) | | 
+    @Html.ActionLink("View More Reviews", "Index")
+</p>
